@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Filmes</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .filme-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .filme-card:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const filmeCards = document.querySelectorAll('.filme-card');
+
+            filmeCards.forEach(function (card) {
+                card.addEventListener('click', function () {
+                    alert('Você clicou em um filme!');
+
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Lista de Filmes</h1>
+
+    {% for each in Filmes %}
+    <div class="filme-card">
+        <h2>{{ each.titulo }}</h2>
+        <p>{{ each.genero }}</p>
+        <p>{{ each.descricao }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
